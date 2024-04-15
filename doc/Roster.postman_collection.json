@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "e7c7b760-8c5b-4678-b297-65321c743c59",
+		"name": "Roster",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34259620"
+	},
+	"item": [
+		{
+			"name": "Upload file",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"description": "Required to trigger Json api",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "Put roster file here",
+							"type": "file",
+							"src": "/D:/roster.html"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/roster/upload",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"roster",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activities by date",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"description": "Required to trigger Json api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/activities?filter[dateFrom]=2022-01-12&filter[dateTo]=2022-01-22",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "filter[dateFrom]",
+							"value": "2022-01-12"
+						},
+						{
+							"key": "filter[dateTo]",
+							"value": "2022-01-22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flights next week",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"description": "Required to trigger Json api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/activities?filter[week]=next&filter[type]=FLT",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "filter[week]",
+							"value": "next"
+						},
+						{
+							"key": "filter[type]",
+							"value": "FLT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Standby next week",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"description": "Required to trigger Json api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/activities?filter[week]=next&filter[type]=SBY",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "filter[week]",
+							"value": "next",
+							"description": "2022-01-17 ~ 2022-01-23 "
+						},
+						{
+							"key": "filter[type]",
+							"value": "SBY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flights from location",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"description": "Required to trigger Json api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/api/activities?filter[type]=FLT&filter[from]=KRP",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "filter[type]",
+							"value": "FLT"
+						},
+						{
+							"key": "filter[from]",
+							"value": "KRP"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://roster.test",
+			"type": "string"
+		}
+	]
+}
